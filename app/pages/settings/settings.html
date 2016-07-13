@@ -1,0 +1,42 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="settings">
+  <ion-list radio-group>
+    <ion-list-header *ngIf="!selectedCountry">
+      Pick a country
+    </ion-list-header>
+    <ion-list-header *ngIf="selectedCountry">
+      Country:
+      <p [style.direction]="selectedCountry.rtl ? 'rtl' : 'ltr'">
+        {{selectedCountry.local_name}}
+      </p>
+    </ion-list-header>
+
+    <ion-item *ngFor="let country of countries">
+      <ion-label>
+        {{country.name}}
+      </ion-label>
+      <ion-radio
+              [value]="country.code"
+              (ionSelect)="select(country)">
+      </ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
