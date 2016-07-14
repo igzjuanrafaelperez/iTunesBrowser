@@ -15,7 +15,7 @@ import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SettingsPage;
+  rootPage: any = SearchPage;
 
   pages: Array<{title: string, component: any}>
 

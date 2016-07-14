@@ -10,6 +10,13 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>search</ion-title>
+    <ion-buttons end>
+      <button (click)="openFilters()">
+        <ion-icon name="funnel"
+          [style.color] = "usesFilter ? 'red' : 'inherit'"
+        ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -29,8 +36,8 @@
       <ion-img item-left [src]="result.artworkUrl100"></ion-img>
       <h2 [innerText]="result.trackName"></h2>
       <p>{{result.artistName}}</p>
-      <ion-icon item-right [name]="result.kind === 'song' ? 'musical-notes' : 'film'"></ion-icon>
-      <ion-icon item-right name="person" [hidden]="result.kind !== 'song'"></ion-icon>
+      <ion-icon (click)="openPreview(result)" item-right [name]="result.kind === 'song' ? 'musical-notes' : 'film'"></ion-icon>
+      <ion-icon (click)="openPreview(result)" item-right name="person" [hidden]="result.kind !== 'song'"></ion-icon>
     </ion-item>
   </ion-list>
 
